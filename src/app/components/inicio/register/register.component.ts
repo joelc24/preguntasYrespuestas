@@ -19,7 +19,7 @@ export class RegisterComponent {
   }
 
   registrarUsuario() : void{
-   
+   console.log(this.register)
   }
 
   checkPassword(group: FormGroup) : any {
