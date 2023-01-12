@@ -1,7 +1,7 @@
 //* MODULOS *//
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -19,6 +19,9 @@ import { CambiarPasswordComponent } from './components/dashboard/cambiar-passwor
 import { CuestionariosComponent } from './components/dashboard/cuestionarios/cuestionarios.component';
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { LoadingComponent } from './shared/loading/loading.component';
+
+//* INTERCEPTORS *//
+import { AddTokenInterceptor } from "../app/helper/add-token.interceptor";
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

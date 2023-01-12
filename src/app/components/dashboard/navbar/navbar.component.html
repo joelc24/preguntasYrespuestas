@@ -4,5 +4,5 @@
       <a class="p-2 text-dark" [routerLink]="['/dashboard']">Cuestionarios</a>
       <a class="p-2 text-dark" [routerLink]="['/dashboard/cambiar-password']">Cambiar Contraseña</a>
     </nav>
-    <a class="btn btn-outline-success" [routerLink]="['/inicio']">Cerrar Session</a>
+    <a class="btn btn-outline-success" (click)="logout()">Cerrar Session</a>
   </div>
