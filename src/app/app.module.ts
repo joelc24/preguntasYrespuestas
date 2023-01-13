@@ -22,6 +22,10 @@ import { LoadingComponent } from './shared/loading/loading.component';
 
 //* INTERCEPTORS *//
 import { AddTokenInterceptor } from "../app/helper/add-token.interceptor";
+import { NuevoCuestionarioComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/nuevo-cuestionario.component';
+import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component';
+import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
+import { NuevaPreguntaComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/nueva-pregunta/nueva-pregunta.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { AddTokenInterceptor } from "../app/helper/add-token.interceptor";
     CambiarPasswordComponent,
     CuestionariosComponent,
     NavbarComponent,
-    LoadingComponent
+    LoadingComponent,
+    NuevoCuestionarioComponent,
+    PasoUnoComponent,
+    PasoDosComponent,
+    NuevaPreguntaComponent
   ],
   imports: [
     BrowserModule,

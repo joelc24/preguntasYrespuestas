@@ -7,6 +7,9 @@ import { RegisterComponent } from './components/inicio/register/register.compone
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CuestionariosComponent } from './components/dashboard/cuestionarios/cuestionarios.component';
 import { CambiarPasswordComponent } from './components/dashboard/cambiar-password/cambiar-password.component';
+import { NuevoCuestionarioComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/nuevo-cuestionario.component';
+import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component';
+import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -17,7 +20,11 @@ const routes: Routes = [
   ]},
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', component: CuestionariosComponent },
-    { path: 'cambiar-password', component: CambiarPasswordComponent}
+    { path: 'cambiar-password', component: CambiarPasswordComponent},
+    { path: 'nuevo-cuestionario', component: NuevoCuestionarioComponent, children: [
+      { path: 'paso-uno', component: PasoUnoComponent },
+      { path: 'paso-dos', component: PasoDosComponent }
+    ] }
   ] },
   { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 ];
