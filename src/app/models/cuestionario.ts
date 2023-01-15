@@ -5,7 +5,7 @@ export class Cuestionario {
     id?: number
     nombre: string
     descripcion: string
-    fechaCreacion: Date
+    fechaCreacion?: Date
     listPreguntas: Pregunta[]
 
     
