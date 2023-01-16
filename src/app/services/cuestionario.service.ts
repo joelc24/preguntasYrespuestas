@@ -15,11 +15,23 @@ export class CuestionarioService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint
-    this.myApiUrl = '/api/cuestionario'
+    this.myApiUrl = '/api/cuestionario/'
   }
 
   guardarCuestionario(cuestionario: Cuestionario): Observable<any>{
 
     return this.http.post(this.myAppUrl + this.myApiUrl, cuestionario)
+  }
+
+  getListCuestianrio() : Observable<any> {
+    return this.http.get(this.myAppUrl + this.myApiUrl + 'GetListCuestionarioByUser')
+  }
+
+  deleteCuestionario(idCuestionario: number) : Observable<any> {
+    return this.http.delete(this.myAppUrl + this.myApiUrl + idCuestionario)
+  }
+
+  getCuestionario(idCuestioanrio : number) : Observable<any> {
+    return this.http.get(this.myAppUrl + this.myApiUrl + idCuestioanrio)
   }
 }

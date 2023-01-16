@@ -10,6 +10,7 @@ import { CambiarPasswordComponent } from './components/dashboard/cambiar-passwor
 import { NuevoCuestionarioComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/nuevo-cuestionario.component';
 import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-uno/paso-uno.component';
 import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
+import { CuestionarioComponent } from './components/dashboard/cuestionarios/cuestionario/cuestionario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, children: [
     { path: '', component: CuestionariosComponent },
     { path: 'cambiar-password', component: CambiarPasswordComponent},
+    { path: 'ver-cuestionario/:id', component: CuestionarioComponent },
     { path: 'nuevo-cuestionario', component: NuevoCuestionarioComponent, children: [
       { path: 'paso-uno', component: PasoUnoComponent },
       { path: 'paso-dos', component: PasoDosComponent }
