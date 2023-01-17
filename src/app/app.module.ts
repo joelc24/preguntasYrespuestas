@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+
 //* COMPONENTES *//
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { BienvenidaComponent } from './components/inicio/bienvenida/bienvenida.component';
 import { LoginComponent } from './components/inicio/login/login.component';
 import { RegisterComponent } from './components/inicio/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CambiarPasswordComponent } from './components/dashboard/cambiar-password/cambiar-password.component';
 import { CuestionariosComponent } from './components/dashboard/cuestionarios/cuestionarios.component';
@@ -60,7 +61,8 @@ import { RespuestaCuestionarioComponent } from './components/inicio/list-cuestio
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -36,7 +36,7 @@ export class CuestionariosComponent implements OnInit {
 
   getCuestionarios() : void {
     this.loading = true
-    this.cuestionarioService.getListCuestianrio().subscribe(data =>{
+    this.cuestionarioService.getListCuestionarioByUser().subscribe(data =>{
       this.listCuestionarios = data
       this.loading = false
     }, error =>{

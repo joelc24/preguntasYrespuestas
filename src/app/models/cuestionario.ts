@@ -2,6 +2,7 @@ import { Pregunta } from "./pregunta"
 
 
 export class Cuestionario {
+[x: string]: any
     id?: number
     nombre: string
     descripcion: string

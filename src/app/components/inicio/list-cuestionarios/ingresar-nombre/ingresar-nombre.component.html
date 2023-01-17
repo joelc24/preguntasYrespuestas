@@ -1,1 +1,21 @@
-<p>ingresar-nombre works!</p>
+<div class="container">
+    <div class="card text-center" style="width: 100%; padding: 20px; min-height: 200px;">
+        <div class="col-lg-6 offset-lg-3">
+            <input 
+                type="text" 
+                class="form-control form-control-lg" 
+                placeholder="Ingrese su nombre" 
+                style="font-size: x-large;"
+                [(ngModel)]="nombreParticipante"
+            >
+        </div>
+        <div class="mt-auto">
+            <button [routerLink]="['/inicio/list-cuestionarios']" class="btn btn-primary btn-lg">
+                Volver
+            </button>
+            <button [disabled]="nombreParticipante == ''" class="btn btn-primary btn-lg btn-sig" (click)="siguiente()">
+                Siguiente
+            </button>
+        </div>
+    </div>
+</div>
