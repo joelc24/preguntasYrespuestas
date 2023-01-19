@@ -23,7 +23,7 @@ export class IngresarNombreComponent implements OnInit {
   }
 
   siguiente() : void {
-    this.nombreParticipante = this.respuestaCuestionario.nombreParticipante 
+    this.respuestaCuestionario.nombreParticipante = this.nombreParticipante 
     this.router.navigate(['/inicio/pregunta'])
   }
 }

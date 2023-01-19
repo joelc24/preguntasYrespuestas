@@ -1,0 +1,32 @@
+<div class="text-center">
+    <app-loading *ngIf="loading"></app-loading>
+</div>
+
+<table class="table table-sm table-hover" *ngIf="listRespuestaCuestionario.length > 0 && !loading">
+    <thead>
+        <tr>
+            <th>Participante</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cuestionarioRespuesta of listRespuestaCuestionario">
+            <td>{{ cuestionarioRespuesta.nombreParticipante | uppercase }}</td>
+            <td>{{ cuestionarioRespuesta.fecha | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ cuestionarioRespuesta.fecha | date: 'HH:mm'}}</td>
+            <td>
+                <div class="float-rigth">
+                    <span routerLink="/dashboard/detalle-respuesta/{{cuestionarioRespuesta.id}}" class="material-symbols-outlined search-icon">
+                        search
+                    </span>
+                    <span class="material-symbols-outlined delete-icon" (click)="eliminarRespuestaCuestionario(cuestionarioRespuesta.id)" >
+                        delete
+                    </span>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 *ngIf="listRespuestaCuestionario.length == 0 && !loading ">No hay respuests al cuestionario para mostrar</h3>
