@@ -14,6 +14,7 @@ export class DetalleRespuestaComponent implements OnInit {
   loading: boolean = false
   cuestionario: Cuestionario
   respuestas: Array<RespuestaCuestionarioDetalle> = []
+
   constructor(
     private aRoute : ActivatedRoute,
     private respuestaCuestionarioService: RespuestaCuestionarioService
@@ -25,9 +26,14 @@ export class DetalleRespuestaComponent implements OnInit {
   }
 
   getListRespuestasYCuestionario() : void {
+    this.loading = true
     this.respuestaCuestionarioService.getCuestionarioByIdRespuesta(this.idRespuesta).subscribe(data => {
+      this.loading = false
       console.log(data)
+      this.cuestionario = data.cuestionario
+      this.respuestas = data.respuestas
     }, error => {
+      this.loading = false
       console.log(error)
     })
   }
