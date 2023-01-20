@@ -12,11 +12,9 @@ import { PasoUnoComponent } from './components/dashboard/cuestionarios/nuevo-cue
 import { PasoDosComponent } from './components/dashboard/cuestionarios/nuevo-cuestionario/paso-dos/paso-dos.component';
 import { CuestionarioComponent } from './components/dashboard/cuestionarios/cuestionario/cuestionario.component';
 import { ListCuestionariosComponent } from './components/inicio/list-cuestionarios/list-cuestionarios.component';
-import { IngresarNombreComponent } from './components/inicio/list-cuestionarios/ingresar-nombre/ingresar-nombre.component';
-import { PreguntaComponent } from './components/inicio/list-cuestionarios/pregunta/pregunta.component';
-import { RespuestaCuestionarioComponent } from './components/inicio/list-cuestionarios/respuesta-cuestionario/respuesta-cuestionario.component';
 import { EstadisticasComponent } from './components/dashboard/cuestionarios/estadisticas/estadisticas.component';
 import { DetalleRespuestaComponent } from './components/dashboard/cuestionarios/estadisticas/detalle-respuesta/detalle-respuesta.component';
+import { AuthGuard } from './helper/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -24,22 +22,12 @@ const routes: Routes = [
     { path: '', component: BienvenidaComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'list-cuestionarios', component: ListCuestionariosComponent },
-    { path: 'ingresar-nombre', component: IngresarNombreComponent },
-    { path: 'pregunta', component: PreguntaComponent },
-    { path: 'respuesta-cuestionario', component: RespuestaCuestionarioComponent },
+    { path: 'list-cuestionarios', component: ListCuestionariosComponent, 
+            loadChildren: ()=> import('./components/inicio/list-cuestionarios/list-cuestionarios.module').then(x => x.ListCuestionariosModule)}
   ]},
-  { path: 'dashboard', component: DashboardComponent, children: [
-    { path: '', component: CuestionariosComponent },
-    { path: 'cambiar-password', component: CambiarPasswordComponent},
-    { path: 'ver-cuestionario/:id', component: CuestionarioComponent },
-    { path: 'estadisticas/:id', component: EstadisticasComponent },
-    { path: 'detalle-respuesta/:id', component: DetalleRespuestaComponent },
-    { path: 'nuevo-cuestionario', component: NuevoCuestionarioComponent, children: [
-      { path: 'paso-uno', component: PasoUnoComponent },
-      { path: 'paso-dos', component: PasoDosComponent }
-    ] }
-  ] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], 
+                                  loadChildren: ()=> import('./components/dashboard/dashboard.module').then(x => x.DashboardModule)
+  },
   { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 

@@ -41,4 +41,8 @@ export class LoginService {
     return decodedToken
   }
 
+  getToken() : string {
+    return localStorage.getItem("token")
+  }
+
 }

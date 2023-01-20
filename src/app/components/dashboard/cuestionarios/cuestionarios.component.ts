@@ -41,7 +41,7 @@ export class CuestionariosComponent implements OnInit {
       this.loading = false
     }, error =>{
       this.loading = false
-      this.toastr.error('Opss... Ocurio un error','Error')
+      // this.toastr.error('Opss... Ocurio un error','Error')
       console.log(error)
     })
   }
